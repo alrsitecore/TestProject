@@ -12,17 +12,19 @@
 
 int main(int argc, char *argv[]){
     @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
         Stack *stack = [Stack new];
         stack = [stack init];
-        NSString *s;
-        for (int i=0; i<5; i++) {
-            s = @"item %d";
-            [stack Push: s];
+        for (int i=0; i<7; i++) {
+            [stack Push: [NSString stringWithFormat:@"Pushed item #%d", i+1]];
         }
         for (int i=0; i<3; i++) {
-            NSLog(@"#%d: %@",i,[stack Pop]);
+            NSLog(@"#%d: %@",i+1,[stack Pop]);
         }
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        for (int i=0; i<[stack count]; i++) {
+            NSLog(@"#%d: %@",i+1,[stack Peek]);
+        }
+        [stack clear];
     }
     
 }
