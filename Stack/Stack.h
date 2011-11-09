@@ -17,9 +17,5 @@
 @end
 
 @interface Stack : NSObject<StackProtocol>
--(void)push:( NSObject* )object_;
--(NSObject*)pop;
--(NSObject*)peek;
--(int)count;
--(void)clear;
+-(void)releaseAll;
 @end
