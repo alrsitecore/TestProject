@@ -16,6 +16,7 @@
 -(void)dealloc
 {
    [ super dealloc ];
+   [ _items release ];
 }
 
 -(id)init
@@ -28,26 +29,13 @@
    }
    return self;
 }
--(void)releaseAll
-{
-   int count_ = [ _items count ];
-   @autoreleasepool 
-   {
-      for (int i_ = 0; i_ < count_ ; i_++ ) 
-      {
-         [ [ _items objectAtIndex: i_ ] autorelease ];
-         [ _items removeObject: [ _items objectAtIndex: i_ ] ];
-      }
-      [ _items autorelease ];
-      [ self autorelease ];
-   }
-}
+
 -(void)push:( NSObject* )object_
 {
    if ( object_ != nil )
    {
-      [ _items insertObject: object_ atIndex: 0 ];
       [ object_ retain ];
+      [ _items insertObject: object_ atIndex: 0 ];
    }
 }
 -(NSObject*)pop
@@ -55,8 +43,9 @@
    if ( [ _items count ] ) 
    {
       id item_ = [ _items objectAtIndex: 0 ];
-      [ _items removeObject: [ _items objectAtIndex: 0 ] ];
       [ item_ retain ];
+      [ _items removeObject: [ _items objectAtIndex: 0 ] ];
+      [ item_ autorelease ];
       return item_;
    }
    else 

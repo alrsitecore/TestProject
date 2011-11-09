@@ -17,5 +17,5 @@
 @end
 
 @interface Stack : NSObject<StackProtocol>
--(void)releaseAll;
+
 @end

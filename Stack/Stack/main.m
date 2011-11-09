@@ -18,7 +18,6 @@ int main( int argc, char *argv[] )
       @autoreleasepool 
       {
          stack_ = [ Stack new ];
-         [ stack_ retain ];
          for ( int i_ = 0; i_ < 6; i_++ ) 
          {
             [ stack_ push: [ NSString stringWithFormat: @"Pushed item #%d", i_ + 1 ] ];
@@ -33,8 +32,7 @@ int main( int argc, char *argv[] )
          NSLog( @"#%d: %@", i_ + 1,[ stack_ peek ] );
       }
       [ stack_ clear ];
-      [ stack_ releaseAll ];
-      
+      [ stack_ autorelease ];
       return UIApplicationMain( argc, argv, nil, NSStringFromClass( [ AppDelegate class ] ) );
 
    }
