@@ -10,50 +10,52 @@
 
 @implementation Stack
 {
-    NSMutableArray *items;
+    NSMutableArray* _items;
 }
--(id) init
+-(id)init
 {
-    self = [super init];
-    if (self)
+    self = [ super init ];
+    if ( self )
     {
-        items = [NSMutableArray array];
+        _items = [ NSMutableArray array ];
     }
     return self;
 }
--(void) Push: (NSObject *) object
+-(void)push:( NSObject* )object_
 {
-    if (object != nil)
+    if ( object_ != nil )
     {
-        [items insertObject: object atIndex: 0];
-         
+        [ _items insertObject: object_ atIndex: 0 ];
     }
 }
--(NSObject *) Pop
+-(NSObject*)pop
 {
-    if ([items count]) {
-        id item = [items objectAtIndex:0];
-        [items removeObject: [items objectAtIndex:0]];
-        return (item);
+    if ( [ _items count ] ) {
+        id item_ = [ _items objectAtIndex: 0 ];
+        [ _items removeObject: [ _items objectAtIndex: 0 ] ];
+        return item_;
     }
-    else return nil;
+    else 
+        return nil;
 }
--(NSObject *) Peek
+-(NSObject*)peek
 {
-    if ([items count]) {
-        return [items objectAtIndex:0];
-    }
-    else return nil;
-}
--(int) count
-{
-    return [items count];
-}
--(void) clear
-{
-    for (int i=0; i<[items count]; i++)
+    if ( [ _items count ] ) 
     {
-        [items removeObject: [items objectAtIndex:0]];
+        return [ _items objectAtIndex: 0 ];
+    }
+    else 
+        return nil;
+}
+-(int)count
+{
+    return [ _items count ];
+}
+-(void)clear
+{
+    for ( int i = 0; i < [_items count]; i++ )
+    { 
+        [ _items removeObject: [_items objectAtIndex: 0 ] ];
     }
 }
 @end

@@ -9,17 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @protocol StackProtocol <NSObject>
--(void) Push: (NSObject *) object;
--(NSObject *) Pop;
--(NSObject *) Peek;
--(int) count;
--(void) clear;
+-(void)push:( NSObject* )object_;
+-(NSObject*)pop;
+-(NSObject*)peek;
+-(int)count;
+-(void)clear;
 @end
 
 @interface Stack : NSObject<StackProtocol>
--(void) Push: (NSObject *) object;
--(NSObject *) Pop;
--(NSObject *) Peek;
--(int) count;
--(void) clear;
+-(void)push:( NSObject* )object_;
+-(NSObject*)pop;
+-(NSObject*)peek;
+-(int)count;
+-(void)clear;
 @end

@@ -10,21 +10,26 @@
 #import "Stack.h"
 #import "AppDelegate.h"
 
-int main(int argc, char *argv[]){
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-        Stack *stack = [Stack new];
-        stack = [stack init];
-        for (int i=0; i<7; i++) {
-            [stack Push: [NSString stringWithFormat:@"Pushed item #%d", i+1]];
+int main( int argc, char *argv[] )
+{
+    @autoreleasepool 
+    {
+        Stack* stack_ = [ Stack new ];
+        for ( int i_ = 0; i_ < 6; i_++ ) 
+        {
+            [ stack_ push: [ NSString stringWithFormat: @"Pushed item #%d", i_ + 1 ] ];
         }
-        for (int i=0; i<3; i++) {
-            NSLog(@"#%d: %@",i+1,[stack Pop]);
+        for ( int i_ = 0; i_ < 3; i_++ ) 
+        {
+            NSLog( @"#%d: %@", i_ + 1,[ stack_ pop ] );
         }
-        for (int i=0; i<[stack count]; i++) {
-            NSLog(@"#%d: %@",i+1,[stack Peek]);
+        for ( int i_ = 0; i_ < [ stack_ count ]; i_++ ) 
+        { 
+            NSLog( @"#%d: %@", i_ + 1,[ stack_ peek ] );
         }
-        [stack clear];
+        [ stack_ clear ];
+        
+        return UIApplicationMain( argc, argv, nil, NSStringFromClass( [ AppDelegate class ] ) );
+
     }
-    
 }
