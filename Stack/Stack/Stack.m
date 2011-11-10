@@ -34,7 +34,6 @@
 {
    if ( object_ != nil )
    {
-      [ object_ retain ];
       [ _items insertObject: object_ atIndex: 0 ];
    }
 }
